@@ -1,5 +1,6 @@
 plugins {
     kotlin("multiplatform")
+    kotlin("native.cocoapods")
     id("com.android.library")
     id("maven-publish")
 }
@@ -24,7 +25,24 @@ kotlin {
         publishLibraryVariants("release")
     }
 
-    ios()
+
+    iosX64()
+    iosArm64()
+    iosSimulatorArm64()
+
+
+    cocoapods {
+        version = "1.0"
+        summary = "Some description for a Kotlin/Native module"
+        homepage = "Link to a Kotlin/Native module homepage"
+
+        name = "FileMeasurer"
+
+        framework {
+            baseName = "FileMeasurer"
+            isStatic = false
+        }
+    }
 
     
     sourceSets {
@@ -50,11 +68,18 @@ kotlin {
             }
             dependsOn(commonMain)
         }
-        val iosMain by getting {
-            dependsOn(commonMain)
+        val iosX64Main by getting
+        val iosArm64Main by getting
+        val iosSimulatorArm64Main by getting
+        val iosMain by creating {
             dependencies {
                 implementation("io.ktor:ktor-client-darwin:$ktorVersion")
             }
+            dependsOn(commonMain)
+            iosX64Main.dependsOn(this)
+            iosArm64Main.dependsOn(this)
+            iosSimulatorArm64Main.dependsOn(this)
+
         }
         val desktopMain by getting {
             dependencies {

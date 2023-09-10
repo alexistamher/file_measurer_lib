@@ -5,6 +5,7 @@ import io.ktor.client.plugins.*
 import io.ktor.client.plugins.contentnegotiation.*
 import io.ktor.client.request.*
 import io.ktor.serialization.kotlinx.json.*
+import kotlinx.coroutines.*
 import kotlinx.serialization.json.Json
 
 private const val CONTENT_LENGTH_KEY = "content-length"
@@ -23,8 +24,11 @@ suspend fun measureFiles(urls: List<String>, sizeType: SizeType = SizeType.BYTE)
     return urls.map { measureSingleFile(it, sizeType) }
 }
 
-suspend fun measureFiles(urlFiles: Map<String, String>, sizeType: SizeType = SizeType.BYTE): Map<String, Double> {
-    return urlFiles.map {  it.key to measureSingleFile(it.value, sizeType) }.toMap()
+suspend fun measureFiles(
+    urlFiles: Map<String, String>,
+    sizeType: SizeType = SizeType.BYTE
+): Map<String, Double> {
+    return urlFiles.map { it.key to measureSingleFile(it.value, sizeType) }.toMap()
 }
 
 private val client = HttpClient {
