@@ -40,7 +40,7 @@ kotlin {
 
         framework {
             baseName = "FileMeasurer"
-            isStatic = false
+            isStatic = true
         }
     }
 
@@ -84,7 +84,6 @@ kotlin {
         val desktopMain by getting {
             dependencies {
                 implementation("io.ktor:ktor-client-apache5:$ktorVersion")
-//                implementation("io.ktor:ktor-client-jvm:$ktorVersion")
             }
         }
     }

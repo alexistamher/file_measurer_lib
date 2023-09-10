@@ -14,4 +14,4 @@ pluginManagement {
     }
 }
 
-rootProject.name = "file_meassurer"
+rootProject.name = "file_measurer"
