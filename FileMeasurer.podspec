@@ -1,14 +1,14 @@
 Pod::Spec.new do |spec|
     spec.name                     = 'FileMeasurer'
     spec.version                  = '0.1.0'
-    spec.homepage                 = 'Link to a Kotlin/Native module homepage'
-    spec.source                   = { :http=> 'https://github.com/alextamariz616/file_measurer_lib.git', :tag => s.version.to_s }
-    spec.authors                  = 'Christian Tamariz Hernandez'
-    spec.license                  = { :type => 'MIT', :file => 'LICENSE' }
+    spec.homepage                 = 'https://github.com/alextamariz616/file_measurer_lib'
+    spec.source                   = { :git => 'git@github.com:alextamariz616/file_measurer_lib.git', :tag => spec.version.to_s }
+    spec.authors                  = 'alextamariz616'
+    spec.license                  = { :type => 'GNU GPLv3 ', :text => 'LICENSE'}
     spec.summary                  = 'Some description for a Kotlin/Native module'
     spec.vendored_frameworks      = 'build/cocoapods/framework/FileMeasurer.framework'
     spec.libraries                = 'c++'
-                
+    spec.ios.deployment_target = '11.4.1'
                 
                 
     spec.pod_target_xcconfig = {
