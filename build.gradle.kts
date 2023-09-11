@@ -8,7 +8,7 @@ plugins {
 }
 
 group = "com.spookybrain"
-version = "0.2.0"
+version = "0.3.0"
 
 repositories {
     mavenCentral()
@@ -110,5 +110,16 @@ android {
     compileSdk = 33
     defaultConfig {
         minSdk = 24
+    }
+}
+
+afterEvaluate {
+    publishing {
+        publications {
+            create<MavenPublication>("maven") {
+                artifactId = "file_measurer-android"
+                groupId = "com.github.spookybrain"
+            }
+        }
     }
 }
