@@ -16,6 +16,7 @@ repositories {
 }
 
 kotlin {
+
     jvm("desktop")
 
     android("android") {
