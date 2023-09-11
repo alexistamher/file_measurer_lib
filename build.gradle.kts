@@ -17,7 +17,7 @@ repositories {
 
 kotlin {
 
-    jvm("desktop")
+//    jvm("desktop")
 
     android("android") {
         compilations.all {
@@ -97,11 +97,11 @@ kotlin {
             iosSimulatorArm64Main.dependsOn(this)
 
         }
-        val desktopMain by getting {
-            dependencies {
-                implementation("io.ktor:ktor-client-apache5:$ktorVersion")
-            }
-        }
+//        val desktopMain by getting {
+//            dependencies {
+//                implementation("io.ktor:ktor-client-apache5:$ktorVersion")
+//            }
+//        }
     }
 }
 
