@@ -35,14 +35,18 @@ kotlin {
 
     cocoapods {
 
-        ios.deploymentTarget = "11.4.1"
-
         version = "0.1.0"
         summary = "Some description for a Kotlin/Native module"
-        license = "{ :type => 'GNU GPLv3 ', :text => 'LICENSE'}"
+        description = "This library provides a multiplatform remote file file reader"
+        license = "{ :type => 'MIT', :text => 'LICENSE'}"
         homepage = "https://github.com/alextamariz616/file_measurer_lib"
-        source = "{ :git => 'git@github.com:alextamariz616/file_measurer_lib.git', :tag => '$version' }"
-        authors = "alextamariz616"
+        source = "{ :git => 'https://github.com/alextamariz616/file_measurer_lib.git', :tag => '$version' }"
+        authors = "alexis.tamher@gmail.com"
+
+        specRepos {
+            url("https://github.com/alextamariz616/file_measurer_lib.git")
+        }
+        ios.deploymentTarget = "11.0"
 
 
         name = "FileMeasurer"
